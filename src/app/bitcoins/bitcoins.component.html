@@ -1,0 +1,29 @@
+<div class="main-card">
+  <div class="conatiner-fluid">
+    <div class="row">
+      <div class="title">
+        <h1>Real Time Data</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <button type="button" class="backBtn" mat-button [routerLink]="['']">
+          Back
+        </button>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="row highChart">
+      <highcharts-chart
+        *ngIf="chartOptions; else waitMsg"
+        [Highcharts]="Highcharts"
+        [options]="chartOptions"
+      >
+      </highcharts-chart>
+      <ng-template #waitMsg>
+        <h3>Loading Data...</h3>
+      </ng-template>
+    </div>
+  </div>
+</div>

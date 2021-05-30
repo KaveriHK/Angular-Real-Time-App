@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+.main-card {
+  text-align: center;
+  align-items: center;
+  background-color: aliceblue;
+  margin: 0 25px 0 25px;
+  height: 600px;
+}
+.title {
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 18px;
+}
+.backBtn {
+  font-size: 15px;
+  margin-bottom: 5px;
+  color: blue;
+}
+
+.highChart {
+  padding-left: 15px;
+  padding-right: 30px;
+}
+

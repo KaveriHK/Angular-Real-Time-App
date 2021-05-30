@@ -1,0 +1,60 @@
+<div class="main-card">
+  <div class="conatiner-fluid">
+    <div class="row">
+      <div class="title">
+        <h1>Real Time Data</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <button type="button" class="backBtn" mat-button [routerLink]="['']">
+          Back
+        </button>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-select
+            [(ngModel)]="selectedState"
+            placeholder="Select State"
+            disableOptionCentering
+            (selectionChange)="getDistricts()"
+          >
+            <mat-option *ngFor="let state of states" [value]="state.state_id">{{
+              state.state_name
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-select
+            [(ngModel)]="selectedDistrict"
+            placeholder="Select District"
+            disableOptionCentering
+            (selectionChange)="getDistrictWiseData()"
+          >
+            <mat-option
+              *ngFor="let dist of districts"
+              [value]="dist.district_id"
+              >{{ dist.district_name }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row" *ngIf="showNoDataMsg">
+      <h3>{{ noDataMsg }}</h3>
+    </div>
+    <div class="row highChart" *ngIf="!showNoDataMsg">
+      <highcharts-chart
+        *ngIf="chartOptions"
+        [Highcharts]="Highcharts"
+        [options]="chartOptions"
+      ></highcharts-chart>
+    </div>
+  </div>
+</div>
